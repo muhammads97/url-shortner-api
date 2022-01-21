@@ -1,22 +1,9 @@
 class ShortUrl < ApplicationRecord
+  include Shortable
   require 'uri'
-
-  CHARACTERS = [*'0'..'9', *'a'..'z', *'A'..'Z'].freeze
 
   validate :validate_full_url
 
-  def short_code
-    code = ""
-    base = CHARACTERS.length
-    tmp = id-1
-    
-    loop do
-      code = CHARACTERS[tmp%base] + code
-      tmp = tmp / base
-      break if tmp <= 0
-    end
-    code
-  end
 
   def update_title!
   end
@@ -24,7 +11,7 @@ class ShortUrl < ApplicationRecord
   private
 
   def validate_full_url
-    if full_url.length == 0
+    if !full_url || full_url.length == 0
       errors.add(:full_url, "can't be blank")
     else
       begin
@@ -35,8 +22,5 @@ class ShortUrl < ApplicationRecord
       end
       errors.add(:full_url, "is not a valid url") if !valid
     end
-
   end
-  
-
 end
