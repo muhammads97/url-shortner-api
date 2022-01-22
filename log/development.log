@@ -473,3 +473,7 @@ Migrating to CreateShortUrls (20190923133432)
   [1m[36mShortUrl Create (0.7ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://www.beenverified.com/faq/', '2022-01-22 10:34:29.552925', '2022-01-22 10:34:29.552925')[0m
   [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mShortUrl Load (1.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 1006 LIMIT 1[0m
+  [1m[35m (1.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortUrl Create (0.7ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('http://h', '2022-01-22 10:43:42.661642', '2022-01-22 10:43:42.661642')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
